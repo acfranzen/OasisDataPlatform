@@ -1,0 +1,11 @@
+{
+  "short_name": "Oasis Data",
+  "name": "Change++ Oasis Center Data Platform",
+  "icons": [
+
+  ],
+  "start_url": ".",
+  "display": "standalone",
+  "theme_color": "#000000",
+  "background_color": "#ffffff"
+}
