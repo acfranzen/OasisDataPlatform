@@ -1,11 +1,11 @@
 import React from 'react';
-import Oasis from './Oasis'
+import SignIn from './SignIn'
 import './App.css';
 
 function App() {
   return (
     <div className="App">
-        <Oasis/>
+        <SignIn/>
     </div>
   );
 }
