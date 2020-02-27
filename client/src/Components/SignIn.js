@@ -1,13 +1,20 @@
-import React, { useState} from "react";
-import { Button, Form, FormGroup, FormControl, FormLabel, Jumbotron, Badge } from "react-bootstrap";
-import "./SignIn.css"
-const img = require("./OasisPhoto.png");
-const resetLink = "";
+import React, { useState } from 'react';
+import {
+  Button,
+  Form,
+  FormGroup,
+  FormControl,
+  FormLabel,
+  Jumbotron,
+  Badge
+} from 'react-bootstrap';
+import './SignIn.css';
+const img = require('../OasisPhoto.png');
+const resetLink = '';
 
 export default function Login(props) {
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
-  
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
 
   function validateForm() {
     return email.length > 0 && password.length > 0;
@@ -21,9 +28,11 @@ export default function Login(props) {
     <div class="container">
       <Jumbotron>
         <div className="Login">
-          <img src={img} class-name="img" alt="Sign in logo"/>
+          <img src={img} class-name="img" alt="Sign in logo" />
           <br></br>
-          <Badge variant="primary">Please use your Oasis Center info to sign-in</Badge>
+          <Badge variant="primary">
+            Please use your Oasis Center info to sign-in
+          </Badge>
           <Form onSubmit={handleSubmit}>
             <FormGroup controlId="email" bsSize="large">
               <FormLabel></FormLabel>
@@ -44,11 +53,18 @@ export default function Login(props) {
                 type="password"
               />
             </FormGroup>
-            <Button block bsSize="large" disabled={!validateForm()} type="submit">
+            <Button
+              block
+              bsSize="large"
+              disabled={!validateForm()}
+              type="submit"
+            >
               Sign in
             </Button>
           </Form>
-          <a className="password-reset" href={resetLink}>Forgot your password?</a>
+          <a className="password-reset" href={resetLink}>
+            Forgot your password?
+          </a>
         </div>
       </Jumbotron>
     </div>
