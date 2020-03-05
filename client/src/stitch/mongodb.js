@@ -15,7 +15,10 @@ const items = mongoClient.db('oasis').collection('youth');
 
 // items.insertOne({ name: 'change++' });
 items.count().then(res => console.log(res));
-items.findOne().then(res => console.log(res));
+items.findOne().then(res => {
+  console.log(res);
+  console.log(res._id.getTimestamp());
+});
 
 // app.auth
 //   .loginWithCredential(new AnonymousCredential())
