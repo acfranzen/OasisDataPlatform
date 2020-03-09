@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { useStitchAuth } from './StitchAuth';
 import {
   Button,
   Form,
@@ -9,10 +10,12 @@ import {
   Badge
 } from 'react-bootstrap';
 import './SignIn.css';
+const APP_ID = 'odp-shbam';
 const img = require('../OasisPhoto.png');
 const resetLink = '';
 
 export default function Login(props) {
+  const { actions } = useStitchAuth();
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
 
@@ -22,6 +25,12 @@ export default function Login(props) {
 
   function handleSubmit(event) {
     event.preventDefault();
+    console.log('here');
+    const loggedInUser = actions.handleUserLogin(email, password).catch(err => {
+      alert(err);
+      console.log(err);
+    });
+    alert('here' + JSON.stringify(loggedInUser));
   }
 
   return (
