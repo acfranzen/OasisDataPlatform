@@ -12,19 +12,25 @@ export function loginAnonymous() {
 
 export async function loginUser(email, password) {
   // Allow users to log in with user/pw
-  alert('stitch/auth');
-
   const credential = new UserPasswordCredential(email, password);
-  let user;
+  let user, errMsg;
   await app.auth
     .loginWithCredential(credential)
     .then(authedUser => {
       console.log(`successfully logged in with id: ${authedUser.id}`);
       user = authedUser;
     })
-    .catch(err => console.error(`login failed with error: ${err}`));
+    .catch(err => {
+      console.error(`login failed with error: ${err}`);
+      errMsg = err;
+    });
 
-  return user;
+  let loginResult = {
+    user: user,
+    err: errMsg
+  };
+  // TODO:  RETURN BOTH USER AND ERROR MESSAGE IN OBJECT
+  return loginResult;
   // return app.auth.loginWithCredential(credential);
 }
 

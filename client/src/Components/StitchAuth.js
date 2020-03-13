@@ -43,18 +43,17 @@ export function StitchAuthProvider(props) {
   };
 
   const handleUserLogin = async (email, password) => {
-    console.log('stitch auth' + email + '   ' + password);
     const { isLoggedIn } = authState;
     if (!isLoggedIn) {
-      const loggedInUser = await loginUser(email, password);
-      console.log(loggedInUser);
-      if (loggedInUser != null) {
+      const logInResult = await loginUser(email, password);
+      if (logInResult.user != null) {
         setAuthState({
           ...authState,
           isLoggedIn: true,
-          currentUser: loggedInUser
+          currentUser: logInResult.user
         });
       }
+      return logInResult;
     }
   };
 
