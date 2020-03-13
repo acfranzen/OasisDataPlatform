@@ -7,3 +7,18 @@ export default function displayData() {
     .toArray()
     .then(docs => console.log(docs));
 }
+
+export function insertData() {
+  items
+    .insertOne({
+      biologicalSex: 'Male',
+      disability: '',
+      dob: new Date(),
+      email: 'test@test.com',
+      ethnicity: 'test',
+      name: 'test person',
+      phone: '1234567899',
+      programs: []
+    })
+    .then(res => console.log(res));
+}

@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { useStitchAuth } from './StitchAuth';
 import {
   Button,
   Form,
@@ -6,22 +7,31 @@ import {
   FormControl,
   FormLabel,
   Jumbotron,
-  Badge
+  Badge,
+  Alert
 } from 'react-bootstrap';
 import './SignIn.css';
+import { loginUser } from '../stitch/auth';
+const APP_ID = 'odp-shbam';
 const img = require('../OasisPhoto.png');
 const resetLink = '';
 
 export default function Login(props) {
+  const { actions } = useStitchAuth();
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const [errorMessage, setErrorMessage] = useState('');
 
   function validateForm() {
     return email.length > 0 && password.length > 0;
   }
 
-  function handleSubmit(event) {
+  async function handleSubmit(event) {
     event.preventDefault();
+    const logInResult = await actions.handleUserLogin(email, password);
+    if (logInResult.err != null) {
+      setErrorMessage(logInResult.err.message);
+    }
   }
 
   return (
@@ -53,6 +63,11 @@ export default function Login(props) {
                 type="password"
               />
             </FormGroup>
+            {errorMessage && (
+              <Alert key={errorMessage} variant="danger">
+                {errorMessage}
+              </Alert>
+            )}
             <Button
               block
               bsSize="large"
