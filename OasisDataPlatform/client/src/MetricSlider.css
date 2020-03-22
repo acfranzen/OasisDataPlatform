@@ -1,0 +1,74 @@
+/*
+#E5E9F2
+*/
+
+.holder {
+}
+
+.metric-text {
+    color: #47525E;
+    font-family: Lato;
+    font-size: 24px;
+    font-weight: 700;
+    line-height: 34px;
+    width: 187px;
+    text-align: left;
+    float:left;
+  }
+
+.goal-text {
+    color: #47525E;
+  font-family: Lato;
+  font-size: 26px;
+  font-weight: 400;
+  line-height: 33px;
+  width: 124px;
+  text-align: center;
+  float:left;
+  overflow:hidden;
+  margin-right:142px;
+}
+
+.bar {
+  background-color: #E5E9F2;
+  width: 407.23px;
+  height: 8px;
+  border: 1px;
+  float:left;
+  overflow:hidden;
+  margin-right: 20px;
+  margin-top:14px;
+}
+
+.filler {
+    background: #8190A5;
+    height: 100%;
+    /* transition: width .2s ease-in; */
+}
+
+.no-check {
+  background-color: #FFFFFF;
+  border: 2px solid #8492A6;
+  border-radius: 100%;
+  width: 22px;
+  height: 22px;
+  overflow: hidden;
+}
+
+.check {
+    background-color: #47525E;
+  border: 2px solid #47525E;
+  border-radius: 100%;
+  width: 22px;
+  height: 22px;
+  justify-content: center;
+  overflow: hidden;
+}
+
+
+.checkmark {
+    background-color: rgba(255, 255, 255, 0);
+  width: 11.88px;
+  height: 9.5px;
+  padding-bottom: 0px;
+}
